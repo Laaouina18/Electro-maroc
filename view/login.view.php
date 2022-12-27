@@ -38,8 +38,23 @@
       </div>
     </div>
     -->
-
+    <div class="container py-4"style="margin-top:20rem;">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Electro-Maroc</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="#">Nouha</a>
+        </div>
+      </div>
    
+    <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
    
 
 

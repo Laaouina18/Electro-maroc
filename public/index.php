@@ -15,7 +15,8 @@ $routes = [
     "/about"=>"../view/about.php",
     "/contact"=>"../view/contact.php",
     "/Products"=>"../view/produits.php",
-    "/inscription"=>"../view/inscription.php"
+    "/inscription"=>"../view/inscription.php",
+    "/ajouter"=>"../view/ajouter-produit.php"
 
 ];
 

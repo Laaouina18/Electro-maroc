@@ -3,7 +3,7 @@ include_once("navbar.php")?>
     <!-- product cards -->
     <div class="input text-center">
        
-        <button id="subscribe">Ajouter Produit</button>
+      <a href="/ajouter"><button id="subscribe">Ajouter Produit</button></a>  
       </div>
     <div class="container" id="product-cards">
       <h1 class="text-center">PRODUCTS</h1>

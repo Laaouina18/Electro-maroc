@@ -656,8 +656,9 @@ html{
     margin-top: 200px;
 }
 #side2{
+    height: 100%;
     background-color: white;
-    height: 70vh;
+    /* height: 70vh; */
     border-radius: 10px;
 }
 #side2 h3{

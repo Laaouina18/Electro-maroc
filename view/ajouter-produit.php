@@ -5,26 +5,24 @@ include_once("navbar.php")?>
         <div class="col-md-5 py-3 py-md-0" id="side1">
             <h3 class="text-center">Register</h3>
         </div>
-        <div class="col-md-7 py-3 py-md-0" id="side2">
-            <h3 class="text-center">Create Account</h3>
+        <form class="col-md-7 py-3 py-md-0" id="side2">
+            <h3 class="text-center">Ajouter Produit</h3>
             <div class="input2 text-center">
             <input type="name" placeholder="Name">
-            <input type="name" placeholder="User Name">
-            <input type="number" placeholder="Phone">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="payes">
-            <input type="name" placeholder="Ville">
-            <input type="text" placeholder="adresse">
-            <input type="text" placeholder="code postale">
-            <input type="password" placeholder="Password">
-
+            <input type="name" placeholder="Categorie">
+            <input type="number" placeholder="Quantite">
+            <input type="number" placeholder="code bare">
+            <input type="number" placeholder="Prix achat">
+            <input type="number" placeholder="prix final">
+            <input type="number" placeholder="Reference">
+            <input type="text" placeholder="description">
             </div>
-            <p class="text-center" id="btnlogin"><a href="#">SIGN UP</a></p>
-        </div>
+            <p class="text-center" id="btnlogin"><a href="#">Save</a></p>
+</form>
 
     </div>
    </div>
-   <div class="container py-4"style="margin-top:22rem;">
+   <div class="container py-4"style="margin-top:20rem;">
         <div class="copyright">
           &copy; Copyright <strong><span>Electro-Maroc</span></strong>. All Rights Reserved
         </div>
@@ -32,7 +30,7 @@ include_once("navbar.php")?>
           Designed by <a href="#">Nouha</a>
         </div>
       </div>
-   
+
    <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
 
 
@@ -41,10 +39,3 @@ include_once("navbar.php")?>
 
 </body>
 </html>
-
-
-
-
-    
-   
- 
