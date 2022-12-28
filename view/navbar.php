@@ -2,14 +2,16 @@
    <div class="top-navbar">
         <p>WELCOME TO OUR SHOP</p>
         <div class="icons">
-            <a href="/login"><img src="assets/images/register.png" alt="" width="18px">Login</a>
+            <a href="<?php if(isset($_SESSION["user"])){echo ' /logout';}else{echo "/login";}?>"><img src="assets/images/register.png" alt="" width="18px"><?php if(isset($_SESSION["user"])){
+    echo "LOG OUT";
+}else{echo "Login" ;}?></a>
             <a href="/inscription"><img src="assets/images/register.png" alt="" width="18px">Inscrir</a>
         </div>
     </div>
     <!-- top navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" id="logo"><span id="span1">E</span>Lectro <span>Maroc</span></a>
+          <a class="navbar-brand" href="/home" id="logo"><span id="span1">E</span>Lectro <span>Maroc</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><img src="assets/images/menu.png" alt="" width="30px"></span>
           </button>

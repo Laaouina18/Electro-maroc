@@ -19,8 +19,7 @@ include_once("navbar.php")?>
             <input type="password" placeholder="Password">
 
             </div>
-            <div style="margin-top: 2rem;"> <button  class="text-center" type="submit" id="btnlogin"  >LOG IN<button>
-           </div></div>
+            <p class="text-center" id="btnlogin"><a href="#">Save</a></p>
         </div>
 
     </div>
@@ -42,10 +41,3 @@ include_once("navbar.php")?>
 
 </body>
 </html>
-
-
-
-
-    
-   
- 

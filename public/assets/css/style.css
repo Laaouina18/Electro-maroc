@@ -679,7 +679,7 @@ html{
 #btnlogin{
     padding-top: 10px;
 }
-#btnlogin a{
+#btnlogin {
     padding: 10px;
     text-decoration: none;
     border-radius: 15px;
@@ -705,6 +705,8 @@ html{
         height: 60vh;
     }
 }
+@media screen and (max-width:776px){
+    #nv{margin-top:60%;}}
 /* login */
 
 

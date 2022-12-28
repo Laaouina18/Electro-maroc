@@ -1,18 +1,23 @@
 <?php 
-$link = "assets/css/style.css";
 
-if(isset($_POST['submit'])){
-    // printDump($_POST);
-if ($_POST['email']=="mehdi@gmail.com" && $_POST['password']=="nouha") {
-    header("Location: /home");
-    session_start();
-    $_SESSION["email"] = $_POST['email'];
+include_once("../Model/usersModel.php");
+if ($_SERVER['REQUEST_METHOD']=='POST') {
+    $username=$_POST["email"];
+    $pass=$_POST["pass"];
+    $user=new AdminModel();
+    $user=$user->AdminLog($username, $pass);
+    if ($user) {
+            $_SESSION["user"]=$user;
+            header("location: /home");
+        }
+        echo "<pre>";
+        print_r($_SESSION); 
+        echo "</pre>";
+    }
 
-}
-include "../view/login.view.php";
-die();
-}
 
 
-include "../view/login.view.php";
+
+include_once("../view/login.view.php");
+
 ?>
