@@ -2,18 +2,13 @@
 include_once("navbar.php");
 include_once("../controller/ProductController.php");?>
     <!-- product cards -->
-    <?php if(isset($_SESSION["user"])){
-    echo '
-    <div class="input text-center">
-       
-      <a href="ajouter"><button id="subscribe">Ajouter Produit</button></a>  
-      </div>';}?>
+    
    <div class="container" id="product-cards">
       <h1 class="text-center">PRODUCTS</h1>
        <!-- <a href="/acheter"> -->
        
       <div class="row" style="margin-top: 30px;">
-     <?php foreach ($produit as $produit): ?>
+     <?php foreach ($produit as $produit)if($produit["categorie"]==$cat){?>
         <div class="col-md-3 py-3 py-md-0">
           
           <div class="card">
@@ -29,28 +24,23 @@ include_once("../controller/ProductController.php");?>
                 <i class="fa-solid fa-star checked"></i>
                 <i class="fa-solid fa-star checked"></i>
               </div>
-        <?php if (isset($_SESSION["user"])) { ?>  
+          
     
       <div class="input text-center"style="display:flex">
      
       <div class="input text-center">
        
-      <a href="/Products?a=supprimer&id=<?php echo $produit["id"] ?>"><button name="supprimer"id="subscribe" style="margin-bottom:2px;color:red;background-color:white;" > <?php if (isset($_SESSION["user"])) {
-        echo 'Supprimer';
-      } ?></button></a>
-       <a href="/update?b=modifier&id=<?php echo $produit["id"] ?>"><button name="modifier" id="subscribe" style="margin:2px;color:blue;background-color:white;"> <?php if (isset($_SESSION["user"])) {
-         echo 'Modifier';
-       } ?></button></a>  
+      <a href="/Products?a=supprimer&id=<?php echo $produit["id"]?>"><button name="supprimer"id="subscribe" style="margin-bottom:2px;color:red;background-color:white;" > <?php if(isset($_SESSION["user"])){ echo 'Supprimer';}?></button></a>
+       <a href="/update?b=modifier&id=<?php echo $produit["id"]?>"><button name="modifier" id="subscribe" style="margin:2px;color:blue;background-color:white;"> <?php if(isset($_SESSION["user"])){ echo 'Modifier';}?></button></a>  
        </div>
       
       </div>
-      <?php }?>
               <h2><?php echo $produit["prixfinal"]; ?> <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
             </div>
           </div>
         
         </div>
-        <?php endforeach; ?>
+        <?php };?>
         
         </div>
         </div>

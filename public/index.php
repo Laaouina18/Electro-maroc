@@ -12,13 +12,15 @@ $routes = [
     "/logout" => "logoutController.php",
     "/addProduct" => "addProductController.php",
     "/produits"=>"../view/produits.php",
-    "/about"=>"../view/about.php",
     "/contact"=>"../view/contact.php",
     "/Products"=>"../view/produits.php",
     "/inscription"=>"../view/inscription.php",
     "/ajouter"=>"../view/ajouter-produit.php",
     "/acheter"=>"../view/acheter.php",
-    "/description"=>"../view/description.php"
+    "/description"=>"../view/description.php",
+    "/update"=>"../view/update.php",
+    "/categorie"=>"../view/categorie.php",
+    "/cartcategorie"=>"../view/cartcategorie.php"
 ];
 
 

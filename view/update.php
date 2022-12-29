@@ -1,26 +1,30 @@
 <?php include_once("header.php");
 include_once("navbar.php");
-include_once("../controller/ProductController.php")?>
+include_once("../controller/ProductController.php");?>
    <div class="container" id="login">
     <div class="row">
         <div class="col-md-5 py-3 py-md-0" id="side1">
             <h3 class="text-center">Register</h3>
         </div>
-        <form class="col-md-7 py-3 py-md-0" id="side2" method="post" action="/Products" enctype="multipart/form-data">
+        <?php $produit = new ProductController;?>
+        <form class="col-md-7 py-3 py-md-0" id="side2" method="post" action="?b=modifier&c=update&id=<?= $produit->select('id', $id)["id"] ?>" enctype="multipart/form-data">
             <h3 class="text-center">Ajouter Produit</h3>
+
             <div class="input2 text-center">
-            <input  type="file" valu="" name="photo"class="form-control-file" name="logo">
-            <input type="name" name="name" placeholder="Name">
-            <input type="name" name="categorie"placeholder="Categorie">
-            <input type="number"name="quantite" placeholder="Quantite">
-            <input type="number" name="code_bare"placeholder="code bare">
-            <input type="number"name="prix_achat" placeholder="Prix achat">
-            <input type="number" name="prix_final"placeholder="prix final">
-            <input type="number" name="reference"placeholder="Reference">
-            <input type="text" name="description"placeholder="description">
+                
+            <input  type="file" value="<?= $produit->select('*', $id)["photo"] ?>"name="photo"class="form-control-file" name="logo">
+            <input type="name" value="<?= $produit->select('*', $id)["name"] ?>" name="name" placeholder="Name">
+            <input type="name" value="<?= $produit->select('*', $id)["categorie"] ?>"name="categorie"placeholder="Categorie">
+            <input type="text"value="<?= $produit->select('*', $id)["quantite"] ?>"name="quantite" placeholder="Quantite">
+            <input type="text" value="<?= $produit->select('*', $id)["codebare"] ?>"name="code_bare"placeholder="code bare">
+            <input type="text"value="<?= $produit->select('*', $id)["prixachat"] ?>"name="prix_achat" placeholder="Prix achat">
+            <input type="text" value="<?= $produit->select('*', $id)["prixfinal"] ?>"name="prix_final"placeholder="prix final">
+            <input type="text"value="<?= $produit->select('*', $id)["reference"] ?>"name="reference"placeholder="Reference">
+            <input type="text" value="<?= $produit->select('*', $id)["description"] ?>"name="description"placeholder="description">
             </div>
-            <div style="margin-top: 2rem;"> <button name="save"  class="text-center" type="submit" id="btnlogin"  >Save<button>
-           </div></div>
+   
+ <button style="margin-top: 2rem;" name="update" class="text-center" type="submit" id="btnlogin"  >Save<button>
+           </div>
 </form>
 
     </div>

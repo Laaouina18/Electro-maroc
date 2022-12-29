@@ -47,15 +47,14 @@ class ProductController {
     }
     function updateProduct(){
         
-            if(isset($_FILES['photo'])){
-                $this->post=[
-                    'name'=> $_POST['name'],
-           'prixachat'=> $_POST['prixachat'],
-           'prixfinal'=> $_POST['prixfinal'],
+            if(isset($_FILES['photo'])&&$_FILES['photo']['error']===0){
+                $this->post=['name'=> $_POST['name'],
+           'prixachat'=> $_POST['prix_achat'],
+           'prixfinal'=> $_POST['prix_final'],
            'categorie'=> $_POST['categorie'],
            'reference'=> $_POST['reference'],
            'description'=> $_POST['description'],
-           'codebare'=> $_POST['codebare'],
+           'codebare'=> $_POST['code_bare'],
            'quantite'=> $_POST['quantite'],
            'photo'=> $this->addPic()
                      ];
@@ -63,12 +62,12 @@ class ProductController {
             }else{
                 $this->post=[
                     'name'=> $_POST['name'],
-                    'prixachat'=> $_POST['prix-achat'],
-                    'prixfinal'=> $_POST['prix-final'],
+                    'prixachat'=> $_POST['prix_achat'],
+                    'prixfinal'=> $_POST['prix_final'],
                     'categorie'=> $_POST['categorie'],
                     'reference'=> $_POST['reference'],
                     'description'=> $_POST['description'],
-                    'codebare'=> $_POST['code-bare'],
+                    'codebare'=> $_POST['code_bare'],
                     'quantite'=> $_POST['quantite'],
                      ];
                 $bool=false;
@@ -92,7 +91,7 @@ if (isset($_POST["save"])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pro=new ProductController();
         $pro->addProduct();
-    header('location:/home');
+    header('location:/produits');
     }
 };    
 // suprimer
@@ -106,13 +105,44 @@ if (isset($_GET["id"])) {
 }
 }
 // modifier
-if(isset($_GET["a"])=="modifier"){
-   
+if (isset($_GET["b"])=="modifier") {
     if (isset($_GET["id"])) {
         $id=$_GET["id"];
-        $p=new ProductController();
-       $produit= $p->getProducts();
-        $p->updateProduct();
-        header("location:/Products");
+        if (isset($_GET["c"])=="update") {
+            $produit = new ProductController();
+            $produit->updateProduct();
+            header("location:/produits");
+        }
     }
+}
+            
+//    Categorie     
+    
+if(isset($_GET["t"])){
+    if($_GET["t"]=="S"){
+        $cat = "Smart Phone";
+    }elseif($_GET["t"]=="PM"){
+        $cat = "PC Moniter";
     }
+    elseif($_GET["t"]=="G"){
+        $cat = "Gaming Gadget";
+    }
+    elseif($_GET["t"]=="C"){
+        $cat = "Cameras";
+    }
+    elseif($_GET["t"]=="F"){
+        $cat = "Fridge";
+    }
+    elseif($_GET["t"]=="W"){
+        $cat = "Samrt Watch";
+    }
+    elseif($_GET["t"]=="H"){
+        $cat = "Headphone";
+    }
+  
+   
+
+}
+if(isset($_GET["p"])){
+    $id = $_GET["id"];
+}

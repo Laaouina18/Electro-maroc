@@ -22,6 +22,13 @@ class productModel {
         $produit=$stmt->fetchAll();
         return $produit;
     }
+    public function getPro($id){
+        $conn=connect_to_db();
+        $stmt=$conn->query("select * from produit where id=$id;");
+    
+    $produit=$stmt->fetchAll();
+    return $produit;
+    }
     public function deleteProductInDb($id){
         $conn=connect_to_db();
         $stmt=$conn->query("delete from produit where id= $id;");
@@ -29,17 +36,17 @@ class productModel {
     public function updateProduitInDb($post,$id,$bool){
         $conn=connect_to_db();
         if($bool){
-             $stmt=$conn->query("UPDATE product SET photo='".$post['photo']."'name='".$post['name']."',
-             categorie='".$post['categorie']."',prixachat=".$post['prix-achat'].",
-             prixfinale=".$post['prix_finale'].",reference=".$post['reference'].",
-             description=".$post['description'].",quantite=".$post['quantite']." , 
-             codebare='".$post['code_bare']."' where id=$id;");
+             $stmt=$conn->query("UPDATE produit SET photo='".$post['photo']."',name='".$post['name']."',
+             categorie='".$post['categorie']."',prixachat='".$post['prixachat']."',
+             prixfinal='".$post['prixfinal']."',reference='".$post['reference']."',
+             description='".$post['description']."',quantite=".$post['quantite']." , 
+             codebare='".$post['codebare']."' where id=$id;");
         }else{
-            $stmt=$conn->query("UPDATE product SET name='".$post['name']."',
-            categorie='".$post['categorie']."',prixachat=".$post['prix_achat'].",
-            prixfinale=".$post['prix_finale'].",reference=".$post['reference'].",
-            description=".$post['description'].",quantite=".$post['quantite']." , 
-            codebare='".$post['code_bare']."'  where id=$id;");
+            $stmt=$conn->query("UPDATE produit SET name='".$post['name']."',
+            categorie='".$post['categorie']."',prixachat='".$post['prixachat']."',
+            prixfinal='".$post['prixfinal']."',reference='".$post['reference']."',
+            description='".$post['description']."',quantite=".$post['quantite']." , 
+            codebare='".$post['codebare']."' where id=$id;");
         }  
     }
 }
