@@ -7,7 +7,7 @@ session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $routes = [
     "/"=>"HomeController.php",
-    "/home"=>"HomeController.php",
+    "/home"=>"../view/Home.view.php",
     "/login"=>"loginController.php",
     "/logout" => "logoutController.php",
     "/addProduct" => "addProductController.php",
@@ -20,7 +20,7 @@ $routes = [
     "/description"=>"../view/description.php",
     "/update"=>"../view/update.php",
     "/categorie"=>"../view/categorie.php",
-    "/cartcategorie"=>"../view/cartcategorie.php"
+    "/clients"=>"../view/clients.php"
 ];
 
 

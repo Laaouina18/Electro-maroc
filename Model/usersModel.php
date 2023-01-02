@@ -11,6 +11,16 @@ class AdminModel {
         return $result;
     }
 }
+class Client {
+    public function log($email,$pass){
+        $conn=connect_to_db();
+        $stmt=$conn->query("select * from clients where email='$email' and pass='$pass'");
+        $result=$stmt->fetch();
+      
+        
+        return $result;
+    }
+}
 
 
 ?>

@@ -119,28 +119,7 @@ if (isset($_GET["b"])=="modifier") {
 //    Categorie     
     
 if(isset($_GET["t"])){
-    if($_GET["t"]=="S"){
-        $cat = "Smart Phone";
-    }elseif($_GET["t"]=="PM"){
-        $cat = "PC Moniter";
-    }
-    elseif($_GET["t"]=="G"){
-        $cat = "Gaming Gadget";
-    }
-    elseif($_GET["t"]=="C"){
-        $cat = "Cameras";
-    }
-    elseif($_GET["t"]=="F"){
-        $cat = "Fridge";
-    }
-    elseif($_GET["t"]=="W"){
-        $cat = "Samrt Watch";
-    }
-    elseif($_GET["t"]=="H"){
-        $cat = "Headphone";
-    }
-  
-   
+        $cat=$_GET["t"];
 
 }
 if(isset($_GET["p"])){

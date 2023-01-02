@@ -1,29 +1,50 @@
 <?php  include_once("header.php");
 include_once("navbar.php");
 include_once("../controller/ProductController.php");?>
-   
-   <div class="container" id="about">
-        <h3>PRODUCT</h3>
-        <?php $produit = new ProductController;?>
-        <hr><h3 class="text-center"><?= $produit->select('*', $id)["categorie"] ?></h3>
-        <hr>
-        <div class="row" style="margin-top: 50px;">
-            <div class="col-md-5 py-3 py-md-0">
-                <div class="card">
-                <img src="<?= $produit->select('*', $id)["photo"] ?>" alt="">  
-                </div>
-            </div>
-            <div class="col-md-7 py-3 py-md-0">
+    <!-- product cards -->
+    
+   <div class="container" id="product-cards">
+      <h1 class="text-center">PRODUCTS</h1>
+       <!-- <a href="/acheter"> -->
+       
+      <div class="row" style="margin-top: 30px;">
+     <?php foreach ($produit as $produit)if($produit["categorie"]==$cat){?>
+        <div class="col-md-3 py-3 py-md-0">
           
-            <h3 style="color:black"class="text-center"><?= $produit->select('*', $id)["name"] ?></h3>
-            <p class="text-center"><h3 style="color:black">Réference:</h3><?= $produit->select('*', $id)["reference"] ?></p>
-            <p class="text-center"><h3 style="color:black">Prix:</h3><?= $produit->select('*', $id)["prixfinal"] ?></p>
-            <p class="text-center"><?= $produit->select('*', $id)["description"] ?><p>
+          <div class="card">
+          
+            <img src="<?= $produit["photo"]?>" alt=""> 
+            <div class="card-body">
+            <a href="/categorie?p=a&id=<?php echo $produit["id"]?>" style="list-style:none;"> 
+              <h3 class="text-center"><?php echo $produit["name"]; ?></h3></a> 
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+          
+    
+      <div class="input text-center"style="display:flex">
+     
+      <div class="input text-center">
+       
+      <a href="/Products?a=supprimer&id=<?php echo $produit["id"]?>"><button name="supprimer"id="subscribe" style="margin-bottom:2px;color:red;background-color:white;" > <?php if(isset($_SESSION["user"])){ echo 'Supprimer';}?></button></a>
+       <a href="/update?b=modifier&id=<?php echo $produit["id"]?>"><button name="modifier" id="subscribe" style="margin:2px;color:blue;background-color:white;"> <?php if(isset($_SESSION["user"])){ echo 'Modifier';}?></button></a>  
+       </div>
+      
+      </div>
+              <h2><?php echo $produit["prixfinal"]; ?> <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
             </div>
+          </div>
+        
         </div>
-    </div>
-
- 
+        <?php };?>
+        
+        </div>
+        </div>
+        
      
     <!-- newslater -->
     <div class="container" id="newslater">

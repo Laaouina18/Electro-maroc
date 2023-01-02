@@ -1,5 +1,6 @@
 <?php include_once("header.php");
-include_once("navbar.php")?>
+include_once("navbar.php");
+include_once("../controller/ClientController.php")?>
    <div class="container" id="login">
     <div class="row">
         <div class="col-md-5 py-3 py-md-0" id="side1">
@@ -7,20 +8,20 @@ include_once("navbar.php")?>
         </div>
         <div class="col-md-7 py-3 py-md-0" id="side2">
             <h3 class="text-center">Create Account</h3>
+            <form action="/inscription" method="post">
             <div class="input2 text-center">
-            <input type="name" placeholder="Name">
-            <input type="name" placeholder="User Name">
-            <input type="number" placeholder="Phone">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="payes">
-            <input type="name" placeholder="Ville">
-            <input type="text" placeholder="adresse">
-            <input type="text" placeholder="code postale">
-            <input type="password" placeholder="Password">
+            <input name="name" type="name" placeholder="Name">
+            <input name="num" type="number" placeholder="Phone">
+            <input name="email" type="email" placeholder="Email">
+            <input name="pass" type="password" placeholder="payes">
+            <input name="ville" type="name" placeholder="Ville">
+            <input name="adresse" type="text" placeholder="adresse">
+            <input name="codepost" type="text" placeholder="code postale">
+         
 
             </div>
-            <div style="margin-top: 2rem;"> <button  class="text-center" type="submit" id="btnlogin"  >LOG IN<button>
-           </div></div>
+            <div style="margin-top: 2rem;"> <button name="save"  class="text-center" type="submit" id="btnlogin"  >LOG IN<button>
+           </div></form></div>
         </div>
 
     </div>

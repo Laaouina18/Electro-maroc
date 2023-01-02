@@ -20,25 +20,30 @@
                   Category
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
-                  <li><a class="dropdown-item" href="/cartcategorie?t=S">Samrt Phone</a></li>
-                  <li><a class="dropdown-item" href="/cartcategorie?t=G">Gaming Gadget</a></li>
-                  <li><a class="dropdown-item" href="/cartcategorie?t=C">Cameras</a></li>
-                  <li><a class="dropdown-item" href="/cartcategorie?t=F">Fridge</a></li>
-                  <li><a class="dropdown-item" href="/cartcategorie?t=W">Samrt Watch</a></li>
-                  <li><a class="dropdown-item" href="/cartcategorie?t=H">Headphone</a></li>
-                  <li><a class="dropdown-item" href="/cartcategorie?t=PM">PC Moniter</a></li>
+                  <li><a class="dropdown-item" href="/categorie?t=Smart Phone">Samrt Phone</a></li>
+                  <li><a class="dropdown-item" href="/categorie?t=Gaming Gadget">Gaming Gadget</a></li>
+                  <li><a class="dropdown-item" href="/categorie?t=Cameras">Cameras</a></li>
+                  <li><a class="dropdown-item" href="/categorie?t=Fridge">Fridge</a></li>
+                  <li><a class="dropdown-item" href="/categorie?t=Smart Watch">Samrt Watch</a></li>
+                  <li><a class="dropdown-item" href="/categorie?t=Headphone">Headphone</a></li>
+                  <li><a class="dropdown-item" href="/categorie?t=PC Moniter">PC Moniter</a></li>
                
                 </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
               </li>
+              <?php if (isset($_SESSION["user"])) {
+              echo '
+                  <li class="nav-item">
+                  <a class="nav-link" href="/clients">Clients</a>
+                </li>';};?>
             </ul>
             <div class="top-navbar">
         <p>WELCOME TO OUR SHOP</p>
         <div class="icons">
         <?php
-          if (isset($_SESSION["user"])) {
+          if (isset($_SESSION["user"]) || isset($_SESSION["client"])) {
         ?>
           <a style="color:white" href="/logout">
             <img src="assets/images/register.png" alt="" width="18px">

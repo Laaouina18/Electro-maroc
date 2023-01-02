@@ -6,9 +6,9 @@ include_once("../controller/ProductController.php");?>
     echo '
     <div class="input text-center">
        
-      <a href="ajouter"><button id="subscribe">Ajouter Produit</button></a>  
+      <a href="ajouter"><button class="subscribe">Ajouter Produit</button></a>  
       </div>';}?>
-   <div class="container" id="product-cards">
+   <div class="container" id="product-cards" style="margin:auto;">
       <h1 class="text-center">PRODUCTS</h1>
        <!-- <a href="/acheter"> -->
        
@@ -20,7 +20,7 @@ include_once("../controller/ProductController.php");?>
           
             <img src="<?= $produit["photo"]?>" alt=""> 
             <div class="card-body">
-            <a href="/categorie?p=a&id=<?php echo $produit["id"]?>" style="list-style:none;"> 
+            <a href="/description?p=a&id=<?php echo $produit["id"]?>" style="list-style:none;"> 
               <h3 class="text-center"><?php echo $produit["name"]; ?></h3></a> 
               <div class="star text-center">
                 <i class="fa-solid fa-star checked"></i>
@@ -35,12 +35,15 @@ include_once("../controller/ProductController.php");?>
      
       <div class="input text-center">
        
-      <a href="/Products?a=supprimer&id=<?php echo $produit["id"] ?>"><button name="supprimer"id="subscribe" style="margin-bottom:2px;color:red;background-color:white;" > <?php if (isset($_SESSION["user"])) {
+      <a href="/Products?a=supprimer&id=<?php echo $produit["id"] ?>"><button name="supprimer"class="subscribe" style="margin-bottom:2px;color:red;background-color:white;" > <?php if (isset($_SESSION["user"])) {
         echo 'Supprimer';
       } ?></button></a>
-       <a href="/update?b=modifier&id=<?php echo $produit["id"] ?>"><button name="modifier" id="subscribe" style="margin:2px;color:blue;background-color:white;"> <?php if (isset($_SESSION["user"])) {
+       <a href="/update?b=modifier&id=<?php echo $produit["id"] ?>"><button name="modifier" class="subscribe" style="margin:2px;color:blue;background-color:white;"> <?php if (isset($_SESSION["user"])) {
          echo 'Modifier';
-       } ?></button></a>  
+        }
+        ;
+      ?></button></a>
+      <a href="/acheter?b=acheter&id=<?php echo $produit["id"] ?>"><button name="achetter" class="subscribe" style="margin:2px;color:blue;background-color:white;">Achetter</button></a>   
        </div>
       
       </div>

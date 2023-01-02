@@ -1,36 +1,41 @@
-<?php include_once("header.php") ;
-include_once("navbar.php")?>
-
-        <div class="col-md-8 py-4 py-md-0" style="margin: auto;">
-          <div class="card">
-         
-            <img src="assets/images/p6.png" alt="">
-            <div class="card-body">
-              <h3 class="text-center">Iphone 13 pro</h3>
-              <p> Lorem ipsum dolor sit amet consectetur
-     adipisicing elit. Natus aliquid illum quas quisquam perferendis eveniet sunt
-      tempore maxime? Harum corrupti ducimus modi recusandae in nisi laboriosam 
-      aperiam est voluptatem dicta. </p>
-              <div class="star text-center">
-                <i class="fa-solid fa-star checked"></i>
-                <i class="fa-solid fa-star checked"></i>
-                <i class="fa-solid fa-star checked"></i>
-                <i class="fa-solid fa-star checked"></i>
-                <i class="fa-solid fa-star checked"></i>
-              </div>
-
-    
-      <div class="input text-center"style="display:flex">
-      
-      </div>
-              <h2>$1000 <span><li class="fa-solid fa-cart-shopping"> <a href="/ajouter"><button id="subscribe" style="margin-bottom:2px;color:yellow;background-color:white; text-align: center;">Achetter</button></a></li></span></h2>
-              
-              
+<?php  include_once("header.php");
+include_once("navbar.php");
+include_once("../controller/ProductController.php");?>
+   
+   <div class="container" id="about">
+        <h3>PRODUCT</h3>
+        <?php $produit = new ProductController;?>
+        <hr><h3 class="text-center"><?= $produit->select('*', $id)["categorie"] ?></h3>
+        <hr>
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-5 py-3 py-md-0">
+                <div class="card">
+                <img src="<?= $produit->select('*', $id)["photo"] ?>" alt="">  
+                </div>
             </div>
-          </div>
+            <div class="col-md-7 py-3 py-md-0">
+          
+            <h3 style="color:black"class="text-center"><?= $produit->select('*', $id)["name"] ?></h3>
+            <p class="text-center"><h3 style="color:black">Réference:</h3><?= $produit->select('*', $id)["reference"] ?></p>
+            <p class="text-center"><h3 style="color:black">Prix:</h3><?= $produit->select('*', $id)["prixfinal"] ?></p>
+            <p class="text-center"><?= $produit->select('*', $id)["description"] ?><p>
+            </div>
         </div>
-        
+    </div>
 
-        
+ 
+     
+    <!-- newslater -->
+    <div class="container" id="newslater">
+      <h3 class="text-center">Subscribe To The ElectroMaroc For Latest upload.</h3>
+      <div class="input text-center">
+        <input type="text" placeholder="Enter Your Email..">
+        <button id="subscribe">SUBSCRIBE</button>
+      </div>
+    </div>
+    <!-- newslater -->
+
+
 
 <?php include_once("footer.php") ?>
+		

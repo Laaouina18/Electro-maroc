@@ -489,7 +489,7 @@
     border:  1px solid black;
     padding-left: 5px;
 }
-#subscribe{
+.subscribe{
     width: 200px;
     height: 36px;
     margin-left: 10px;
@@ -505,7 +505,7 @@
     .input input{
         width: 280px;
     }
-    #subscribe{
+    .subscribe{
         margin-top: 10px;
     }
 }
@@ -513,7 +513,7 @@
     .input input{
         width: 150px;
     }
-    #subscribe{
+    .subscribe{
         width: 150px;
     }
 }
@@ -774,4 +774,89 @@ html{
     background-color: rgb(3, 26, 57);
     color: white;
 }
-/* contact */
+/* clients */
+/* produit */
+
+.clients{
+    margin-top:20px ;
+    text-transform: capitalize;
+  width: 100%;
+}
+.clients-list{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    margin-top: 10px;
+    background:#fff;
+    border-radius: 10px;
+box-shadow: 0 20px 35px  rgba(0,0,0, 0.1);
+}
+
+.list-text{
+    margin-right: 2rem;
+}
+.table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 10%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+.table thead tr{
+    color:#fff;
+    text-align: left ;
+    font-weight:bold;
+    background-color:  #0d47a1;
+}
+.table th,
+.table td{
+   padding: 12px 15px; 
+}
+
+.table tbody tr{
+    border-bottom :1px solid #ddd;
+
+}
+.table tbody tr:nth-of-type(odd){
+    background:#fff;
+} 
+.table tbody tr:last-of-type{
+    border-bottom:2px solid  #0d47a1;
+}
+.delete{
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+.table button{
+    color:  #0d47a1;
+    padding:6px 20px;
+    border-radius: 10px;
+    cursor:pointer; 
+    background: transparent;
+    border: 1px solid  #0d47a1;
+
+}
+table button:hover{
+    background:  #0d47a1;
+    color: #fff;
+    transition: 0.5s;
+}
+tr td img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+.titre-table{
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .clients-list{
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+  }
+/* produit */

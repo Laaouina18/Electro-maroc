@@ -47,7 +47,7 @@
       <h3 class="text-center">Subscribe To The Electronic Shop For Latest upload.</h3>
       <div class="input text-center">
         <input type="text" placeholder="Enter Your Email..">
-        <button id="subscribe">SUBSCRIBE</button>
+        <button class="subscribe">SUBSCRIBE</button>
       </div>
     </div>
     <!-- newslater -->
