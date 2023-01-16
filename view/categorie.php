@@ -9,13 +9,13 @@ include_once("../controller/ProductController.php");?>
        
       <div class="row" style="margin-top: 30px;">
      <?php foreach ($produit as $produit)if($produit["categorie"]==$cat){?>
-        <div class="col-md-3 py-3 py-md-0">
+        <div class="col-md-3 py-3 py-md-2">
           
           <div class="card">
           
             <img src="<?= $produit["photo"]?>" alt=""> 
             <div class="card-body">
-            <a href="/categorie?p=a&id=<?php echo $produit["id"]?>" style="list-style:none;"> 
+            <a href="/categorie?p=a&id=<?php echo $produit["id"]?>" style="text-decoration:none;"> 
               <h3 class="text-center"><?php echo $produit["name"]; ?></h3></a> 
               <div class="star text-center">
                 <i class="fa-solid fa-star checked"></i>
@@ -26,13 +26,21 @@ include_once("../controller/ProductController.php");?>
               </div>
           
     
-      <div class="input text-center"style="display:flex">
+ 
      
       <div class="input text-center">
-       
-      <a href="/Products?a=supprimer&id=<?php echo $produit["id"]?>"><button name="supprimer"id="subscribe" style="margin-bottom:2px;color:red;background-color:white;" > <?php if(isset($_SESSION["user"])){ echo 'Supprimer';}?></button></a>
-       <a href="/update?b=modifier&id=<?php echo $produit["id"]?>"><button name="modifier" id="subscribe" style="margin:2px;color:blue;background-color:white;"> <?php if(isset($_SESSION["user"])){ echo 'Modifier';}?></button></a>  
+      <a href="/Products?a=supprimer&id=<?php echo $produit["id"] ?>"><button name="supprimer"class="subscribe" style="color:red;background-color:white;" > <?php if (isset($_SESSION["user"])) 
+      
+        echo 'Supprimer';?></button></a>
+       <a href="/update?b=modifier&id=<?php echo $produit["id"] ?>"><button name="modifier" class="subscribe" style="color:blue;background-color:white;"> <?php if (isset($_SESSION["user"])) {
+         echo 'Modifier';
+        }
+        ;
+      ?></button></a>
+      <a href="/acheter?b=acheter&id=<?php echo $produit["id"] ?>"><button name="achetter" class="subscribe" style="color:orange;background-color:white;">Achetter</button></a>   
        </div>
+      
+  
       
       </div>
               <h2><?php echo $produit["prixfinal"]; ?> <span><li class="fa-solid fa-cart-shopping"></li></span></h2>

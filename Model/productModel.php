@@ -22,6 +22,13 @@ class productModel {
         $produit=$stmt->fetchAll();
         return $produit;
     }
+    public function getProFromDb($id){
+        $conn=connect_to_db();
+            $stmt=$conn->query("select * from produit where id=$id;");
+        
+        $produit=$stmt->fetchAll();
+        return $produit;
+    }
     public function getPro($id){
         $conn=connect_to_db();
         $stmt=$conn->query("select * from produit where id=$id;");

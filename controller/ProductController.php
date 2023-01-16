@@ -84,6 +84,10 @@ class ProductController {
         $get = new productModel;
         return $get->getProductsFromDb();
     }
+    function getPro() {
+        $get = new productModel;
+        return $get->getProductsFromDb();
+    }
 }
 $test=new productController;
 $produit=$test->getProducts();

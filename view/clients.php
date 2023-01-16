@@ -8,20 +8,19 @@ include_once("../controller/ClientController.php")
 
 
 <section class="clients">
-  <div class="clients-list">
-  <div class="clients-liste">
+  <div class="table-responsive-md">
       
        
     <table class="table">
-      <thead>
+      <thead  class="thead-dark">
         <tr>
           <!-- <th scope="titre-table">#</th> -->
-          <th scope="titre-table">Clients</th>
-          <th scope="titre-table">Name</th>
-          <th scope="titre-table">Email</th>
-          <th scope="titre-table">Numéro de Téléphone</th>
-          <th scope="titre-table">Ville</th>
-          <th scope="titre-table">Commande</th>
+          <th scope="col">Clients</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Numéro de Téléphone</th>
+          <th scope="col">Ville</th>
+          <th scope="col">Commande</th>
         </tr>
       </thead>
       <tbody>
@@ -43,5 +42,6 @@ include_once("../controller/ClientController.php")
       </tbody>
     </table>
   </div>
+
 </section>
 <?php include_once("footer.php") ?>

@@ -6,16 +6,17 @@ class CommandeController {
    
     function addCommande(){
            $this->post=[
+            'idclient'=>$_SESSION['client']['id'],
            'date_creation'=> $_POST['date_creation'],
            'date_envoi'=> $_POST['date_envoi'],
            'date_livraison'=> $_POST['date_livraison']
         ];
-        $produit=new clientModel;
+        $produit=new commandeModel;
         $produit->addCommandeToDb($this->post);
         
     }
     function select($element,$id){
-        $select=new clientModel;
+        $select=new commandeModel;
         return $select->selectFromDb($element,$id);
     }
     function updateCommande(){
@@ -23,6 +24,7 @@ class CommandeController {
            
            
         $this->post=[
+            'idclient'=>$_SESSION['client']['id'],
             'date_creation'=> $_POST['date_creation'],
            'date_envoi'=> $_POST['date_envoi'],
            'date_livraison'=> $_POST['date_livraison']
@@ -45,6 +47,7 @@ class CommandeController {
 $test=new CommandeController();
 $produit=$test->getCommande();
 if (isset($_POST["enregistrer"])) {
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pro=new CommandeController();
         $pro->addCommande();

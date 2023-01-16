@@ -860,3 +860,37 @@ tr td img{
     }
   }
 /* produit */
+
+#root{
+    width:60%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:20px;
+
+}
+.sidebar{
+    width: 40%;
+    border-radius: 5px;
+    background-color: #eee;
+    margin-left: 20px;
+    padding:15px;
+    text-align: center;
+}
+.head{
+    background-color:#0d47a1;
+    border-radius: 3px;
+    height: 40px;
+    padding:10px;
+  
+    margin-bottom: 20px;
+    color:white;
+    display: flex;
+    align-items: center;
+}
+.foot{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 0px;
+    border-top:1px solid #333;
+}

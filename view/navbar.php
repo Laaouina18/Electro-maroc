@@ -38,9 +38,14 @@
                   <li class="nav-item">
                   <a class="nav-link" href="/clients">Clients</a>
                 </li>';};?>
+                <?php if (isset($_SESSION["user"])) {
+              echo '
+                  <li class="nav-item">
+                  <a class="nav-link" href="/commandes">Commandes</a>
+                </li>';};?>
             </ul>
             <div class="top-navbar">
-        <p>WELCOME TO OUR SHOP</p>
+       
         <div class="icons">
         <?php
           if (isset($_SESSION["user"]) || isset($_SESSION["client"])) {

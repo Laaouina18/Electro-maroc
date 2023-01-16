@@ -4,9 +4,12 @@ class CommandeModel {
     private $posts;
     public function addCommandeToDb($post){
         $conn=connect_to_db();
-        $stmt=$conn->query("INSERT INTO commandes (date_creation,date_envoi,date_livraison
+        $stmt=$conn->query("INSERT INTO commandes (date_creation,date_envoi,date_livraison,idclient
         ) VALUES ('".$post['date_creation']."',
-        '".$post['date_envoi']."','".$post['date_livraison']."')");
+        '".$post['date_envoi']."','".$post['date_livraison']."',$_SESSION['client']['id']");
+        // $stmt=$conn->query("INSERT INTO commande_produit (quantite,idproduit,idcomamande
+        // ) VALUES (".$post['quantite']."",
+        // '".$post['date_envoi']."','".$post['date_livraison']."',$_SESSION['client']['id']");
     }
     function selectFromDb($element,$id){
         $conn=connect_to_db();
