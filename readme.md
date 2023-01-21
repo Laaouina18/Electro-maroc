@@ -17,27 +17,27 @@
 <img src="./public/assets/images/Capture d'écran_2.png">
 
 
-##  page des Produits
+##  PAGE DES PRODUITS
 
 <img src="./public/assets/images/Capture d'écran_202.png">
 
 <img src="./public/assets/images/Capture d'écran_34.png">
 
-# page contact
+# PAGE CONTACT
 <img src="./public/assets/images/Capture d'écran_7.png">
 
-## la partie responsive
+## LA PAGE RESPONSIVE
 
 <img src="./public/assets/images/Capture d'écran_28.png">
 
- # login
+ ## LOGIN
 <img src="./public/assets/images/Capture d'écran_38.png">
 
-## la partie admin
+## LA PARTIE ADMIN
 
 <img src="./public/assets/images/Capture d'écran_5.png">
 
- # les clients
+ ### LES CLIENTS
 
 <img src="./public/assets/images/Capture d'écran_8.png">
 
