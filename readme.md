@@ -3,13 +3,17 @@
 ## start proejct 
 
 > PHP -S localhost:8000 -t public
-## home
-<img src="./public/assets/images/Capture d'écran_02.png">
+##  Conception de base de donneé
+
+<img src="./public/assets/images/Capture d’écran 2023-01-21 135807.png">
+
+##  LA PAGE HOME
+
 
 
 <img src="./public/assets/images/Capture d'écran_17.png">
 
-## commandes
+## LES COMMANDES
 <img src="./public/assets/images/Capture d'écran_2.png">
 
 
@@ -21,14 +25,15 @@
 
 # page contact
 <img src="./public/assets/images/Capture d'écran_7.png">
-# la partie responsive
+
+## la partie responsive
 
 <img src="./public/assets/images/Capture d'écran_28.png">
 
  # login
 <img src="./public/assets/images/Capture d'écran_38.png">
 
-# la partie admin
+## la partie admin
 
 <img src="./public/assets/images/Capture d'écran_5.png">
 
@@ -36,6 +41,3 @@
 
 <img src="./public/assets/images/Capture d'écran_8.png">
 
-##  Conception de base de donneé
-
-<img src="./public/assets/images/Capture d’écran 2023-01-21 135807.png">
