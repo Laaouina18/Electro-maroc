@@ -43,6 +43,11 @@
                   <li class="nav-item">
                   <a class="nav-link" href="/commandes">Commandes</a>
                 </li>';};?>
+                   <?php if (isset($_SESSION["client"])) {
+              echo '
+                  <li class="nav-item">
+                  <a class="nav-link" href="/carte">Carte</a>
+                </li>';};?>
             </ul>
             <div class="top-navbar">
        

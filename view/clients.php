@@ -7,11 +7,8 @@ include_once("../controller/ClientController.php")
 ?>
 
 
-<section class="clients">
-  <div class="table-responsive-md">
-      
-       
-    <table class="table">
+<div class="table-responsive m-3">
+  <table class="table">
       <thead  class="thead-dark">
         <tr>
           <!-- <th scope="titre-table">#</th> -->
@@ -43,5 +40,5 @@ include_once("../controller/ClientController.php")
     </table>
   </div>
 
-</section>
+
 <?php include_once("footer.php") ?>

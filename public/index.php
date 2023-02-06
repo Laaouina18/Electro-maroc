@@ -6,10 +6,10 @@ session_start();
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $routes = [
-    "/"=>"HomeController.php",
+    "/"=>"../view/Home.view.php",
     "/home"=>"../view/Home.view.php",
-    "/login"=>"loginController.php",
-    "/logout" => "logoutController.php",
+    "/login"=>"../controller/loginController.php",
+    "/logout" => "../controller/logoutController.php",
     "/addProduct" => "addProductController.php",
     "/produits"=>"../view/produits.php",
     "/contact"=>"../view/contact.php",
@@ -20,7 +20,8 @@ $routes = [
     "/description"=>"../view/description.php",
     "/update"=>"../view/update.php",
     "/categorie"=>"../view/categorie.php",
-    "/clients"=>"../view/clients.php"
+    "/clients"=>"../view/clients.php",
+    "/carte"=>"../view/carte.php"
 ];
 
 
@@ -32,7 +33,7 @@ $routes = [
 
 
 if(array_key_exists($uri,$routes)){
-    include "../controller/".$routes[$uri];
+    include $routes[$uri];
 }else{
     include "../view/404.php";
 }

@@ -30,7 +30,7 @@ include_once("../controller/ProductController.php");?>
       <h3 class="text-center">Subscribe To The ElectroMaroc For Latest upload.</h3>
       <div class="input text-center">
         <input type="text" placeholder="Enter Your Email..">
-        <button id="subscribe">SUBSCRIBE</button>
+        <button class="btn btn-danger" id="subscribe">SUBSCRIBE</button>
       </div>
     </div>
     <!-- newslater -->

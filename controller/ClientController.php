@@ -55,6 +55,6 @@ if (isset($_POST["save"])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $clients=new ClientController();
         $clients->addClient();
-    header('location:../view/index.php');
+    header('location:/home');
     }
 };    

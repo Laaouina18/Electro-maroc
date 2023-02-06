@@ -1,15 +1,12 @@
 <?php
-require_once ("../Model/clientsModel.php");
+require_once ("../Model/CommandeModel.php");
 class CommandeController {
     private $post;
     private $type;
    
     function addCommande(){
            $this->post=[
-            'idclient'=>$_SESSION['client']['id'],
-           'date_creation'=> $_POST['date_creation'],
-           'date_envoi'=> $_POST['date_envoi'],
-           'date_livraison'=> $_POST['date_livraison']
+            'idclient'=>$_SESSION['client']['id']
         ];
         $produit=new commandeModel;
         $produit->addCommandeToDb($this->post);
@@ -24,10 +21,7 @@ class CommandeController {
            
            
         $this->post=[
-            'idclient'=>$_SESSION['client']['id'],
-            'date_creation'=> $_POST['date_creation'],
-           'date_envoi'=> $_POST['date_envoi'],
-           'date_livraison'=> $_POST['date_livraison']
+            'idclient'=>$_SESSION['client']['id']
           
          ];
            
@@ -46,8 +40,8 @@ class CommandeController {
 }
 $test=new CommandeController();
 $produit=$test->getCommande();
-if (isset($_POST["enregistrer"])) {
-
+if (isset($_POST["acheter"])) {
+    $id = $_GET["id"];
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pro=new CommandeController();
         $pro->addCommande();

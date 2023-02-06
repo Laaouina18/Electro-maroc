@@ -99,7 +99,7 @@ if (isset($_POST["save"])) {
     }
 };    
 // suprimer
-if(isset($_GET["a"])=="supprimer"){
+if(isset($_GET["b"])=="supprimer"){
    
 if (isset($_GET["id"])) {
     
