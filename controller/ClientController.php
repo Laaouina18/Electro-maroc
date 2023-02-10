@@ -44,13 +44,12 @@ class clientController {
             $delete=new clientModel;
             $delete->deleteClientInDb($_GET['id']);
     }
-    function getClient() {
+    function getClient($id) {
         $get = new clientModel;
-        return $get->getClientFromDb();
+        return $get->getClientFromDb($id);
     }
 }
-$test=new clientController;
-$clients=$test->getClient();
+
 if (isset($_POST["save"])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $clients=new ClientController();

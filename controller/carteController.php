@@ -24,7 +24,7 @@ class CarteController {
     }
     function deleteCarte() {
             $delete=new CarteModel;
-            $delete->deleteCarteInDb($_GET['id']);
+            $delete->deleteCarteInDb();
     }
     function getCarte() {
         $get = new CarteModel;

@@ -5,33 +5,45 @@ class CommandeController {
     private $type;
    
     function addCommande(){
-           $this->post=[
-            'idclient'=>$_SESSION['client']['id']
-        ];
+    
         $produit=new commandeModel;
-        $produit->addCommandeToDb($this->post);
+        $id=$produit->addCommandeToDb();
+        return $id;
         
+    }
+    function addproduit($idc, $idp, $q){
+        $produit = new commandeModel;
+        $produit->addproduitcommande($idc,$idp, $q);
     }
     function select($element,$id){
         $select=new commandeModel;
         return $select->selectFromDb($element,$id);
     }
+    function getprix($id){
+        $select = new CommandeModel;
+        return $select->getprix($id);
+    }
     function updateCommande(){
-        
-           
-           
-        $this->post=[
-            'idclient'=>$_SESSION['client']['id']
-          
-         ];
            
          $update=new CommandeModel;
-         $update->updateCommandeInDb($this->post,$_GET['id']);
+         $update->updateCommandeInDb($_GET['id']);
         
     }
+    function updateCommandeclient(){
+           
+        $update=new CommandeModel;
+        $update->updateCommandeclient($_GET['id']);
+       
+   }
     function deleteCommande() {
             $delete=new CommandeModel;
             $delete->deleteCommandeInDb($_GET['id']);
+    }
+    function getpro($idc,$idclient){
+        $produit = new CommandeModel;
+        $pro = $produit->getpr($idc, $idclient);
+        return $pro;
+       
     }
     function getCommande() {
         $get = new CommandeModel;
@@ -39,33 +51,57 @@ class CommandeController {
     }
 }
 $test=new CommandeController();
-$produit=$test->getCommande();
-if (isset($_POST["acheter"])) {
-    $id = $_GET["id"];
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $pro=new CommandeController();
-        $pro->addCommande();
-    header('location:../view/index.php');
+$commandes=$test->getCommande();
+
+
+// if (isset($_POST["acheter"])) {
+//     $id = $_GET["id"];
+//     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//         $pro=new CommandeController();
+//         $pro->addCommande();
+//     header('location:../view/index.php');
+//     }
+// };    
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "<script type='text/javascript'>alert('vous ètes sur?');</script>";
+    $commande = new CommandeController;
+    $idc = $commande->addCommande();
+
+
+    $q = $_POST["qtt"];
+    for ($i = 0; $i < count($carte); $i++) {
+        $produit = new CommandeController;
+        $produit->addproduit($idc, $carte[$i]["idproduit"], $q[$i]);
     }
-};    
-// suprimer
-if(isset($_GET["c"])=="supprimer"){
+    $carte = new CarteController;
+    $carte->deleteCarte();
+    header("location:/home");
+}
+
+if(isset($_GET["t"])){
    
-if (isset($_GET["id"])) {
+
     
     $p=new CommandeController();
-    $p->deleteCommande();
-    header("location:/Products");
+    $p->updateCommande();
+   
+
 }
+if(isset($_GET["confirmerclient"])){
+   
+
+    
+    $p=new CommandeController();
+    $p->updateCommandeclient();
+   
+
 }
-// modifier
-if (isset($_GET["c"])=="modifier") {
-    if (isset($_GET["id"])) {
-        $id=$_GET["id"];
-        if (isset($_GET["c"])=="update") {
+
+if (isset($_GET["v"])) {
+    
+      
             $produit = new CommandeController();
-            $produit->updateCommande();
-            header('location:../view/index.php');
-        }
-    }
+            $produit->deleteCommande();
+           
+   
 }

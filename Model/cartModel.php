@@ -1,12 +1,13 @@
 <?php
-require_once 'connection.php';
+
 class CarteModel {
     private $posts;
     public function addCarteToDb($id){
         $conn=connect_to_db();
         $idc = $_SESSION['client']['id'];
-        $stmt=$conn->query("INSERT INTO cart (idclient,idproduit,date_creation,status,quant)
-         VALUES ($idc,$id, NOW(),'encours',1)");
+        
+        $stmt=$conn->query("INSERT INTO cart (idclient,idproduit,status,quant)
+         VALUES ($idc,$id,'encours',1)");
         // $stmt=$conn->query("INSERT INTO commande_produit (quantite,idproduit,idcomamande
         // ) VALUES (".$post['quantite']."",
         // '".$post['date_envoi']."','".$post['date_livraison']."',$_SESSION['client']['id']");
@@ -31,9 +32,9 @@ class CarteModel {
     $produit=$stmt->fetchAll();
     return $produit;
     }
-    public function deleteCarteInDb($id){
+    public function deleteCarteInDb(){
         $conn=connect_to_db();
-        $stmt=$conn->query("delete from cart where idc=$id;");
+        $stmt=$conn->query("delete from cart ");
     }
     public function updateCarteInDb($q,$id){
         $conn=connect_to_db();

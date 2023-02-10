@@ -37,8 +37,9 @@ class ProductController {
            'quantite'=> $_POST['quantite'],
            'photo'=> $this->addPic()
         ];
+        $name=$_POST["categorie"];
         $produit=new productModel;
-        $produit->addProductToDb($this->post);
+        $produit->addProductToDb($this->post,$name);
         
     }
     function select($element,$id){
@@ -89,8 +90,8 @@ class ProductController {
         return $get->getProductsFromDb();
     }
 }
-$test=new productController;
-$produit=$test->getProducts();
+// $test=new productController;
+// $produit=$test->getProducts();
 if (isset($_POST["save"])) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pro=new ProductController();
@@ -99,7 +100,7 @@ if (isset($_POST["save"])) {
     }
 };    
 // suprimer
-if(isset($_GET["b"])=="supprimer"){
+if(isset($_GET["a"])){
    
 if (isset($_GET["id"])) {
     
@@ -109,10 +110,10 @@ if (isset($_GET["id"])) {
 }
 }
 // modifier
-if (isset($_GET["b"])=="modifier") {
+if (isset($_GET["b"])) {
     if (isset($_GET["id"])) {
         $id=$_GET["id"];
-        if (isset($_GET["c"])=="update") {
+        if (isset($_GET["c"])) {
             $produit = new ProductController();
             $produit->updateProduct();
             header("location:/produits");

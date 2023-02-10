@@ -1,6 +1,11 @@
 <?php  include_once("header.php");
 include_once("navbar.php");
-include_once("../controller/ProductController.php");?>
+include_once("../controller/ProductController.php");
+include_once("../controller/categorieController.php");
+$conn=connect_to_db();
+$stmt=$conn->query("SELECT *FROM produit inner join categorie on produit.idcategorie=categorie.idcategorie");
+$produit=$stmt->fetchAll();
+?>
     <!-- product cards -->
     
    <div class="container" id="product-cards">
@@ -8,7 +13,7 @@ include_once("../controller/ProductController.php");?>
        <!-- <a href="/acheter"> -->
        
       <div class="row" style="margin-top: 30px;">
-     <?php foreach ($produit as $produit)if($produit["categorie"]==$cat){?>
+     <?php foreach ($produit as $produit)if($produit["namecategorie"]==$cat){?>
         <div class="col-md-3 py-3 py-md-2">
           
           <div class="card">
@@ -16,7 +21,7 @@ include_once("../controller/ProductController.php");?>
             <img src="<?= $produit["photo"]?>" alt=""> 
             <div class="card-body">
             <a href="/categorie?p=a&id=<?php echo $produit["id"]?>" style="text-decoration:none;"> 
-              <h3 class="text-center"><?php echo $produit["name"]; ?></h3></a> 
+              <h3 class="text-center"><?php echo $produit["namep"]; ?></h3></a> 
               <div class="star text-center">
                 <i class="fa-solid fa-star checked"></i>
                 <i class="fa-solid fa-star checked"></i>
@@ -27,23 +32,30 @@ include_once("../controller/ProductController.php");?>
           
     
  
-     
+              <?php if (isset($_SESSION["user"])) {
+                echo '
       <div class="input text-center">
-      <a href="/Products?a=supprimer&id=<?php echo $produit["id"] ?>"><button name="supprimer"class="subscribe" style="color:red;background-color:white;" > <?php if (isset($_SESSION["user"])) 
+      <a href="/Products?a=supprimer&id=';
+                echo $produit["id"];
+                echo '"><button name="supprimer"class="subscribe" style="color:red;background-color:white;" > 
+     
       
-        echo 'Supprimer';?></button></a>
-       <a href="/update?b=modifier&id=<?php echo $produit["id"] ?>"><button name="modifier" class="subscribe" style="color:blue;background-color:white;"> <?php if (isset($_SESSION["user"])) {
-         echo 'Modifier';
-        }
-        ;
-      ?></button></a>
-      <a href="/acheter?b=acheter&id=<?php echo $produit["id"] ?>"><button name="achetter" class="subscribe" style="color:orange;background-color:white;">Achetter</button></a>   
-       </div>
-      
-  
-      
-      </div>
-              <h2><?php echo $produit["prixfinal"]; ?> <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+      Supprimer</button></a>
+       <a href="/update?b=modifier&id=';
+                echo $produit["id"];
+                echo '"><button name="modifier" class="subscribe" style="color:blue;background-color:white;">
+        
+         Modifier
+       
+      </button></a>
+      </div>';
+              }?>
+              <h2><?php echo $produit["prixfinal"]; ?> <span><a class="fa-solid fa-cart-shopping"
+              <?php if (isset($_SESSION['client'])) {
+                echo ' href="/produits?acheter=aa&id=';
+                echo $produit['id'];
+                echo '" ';
+              }?>style="color:black;"></a></span></h2>
             </div>
           </div>
         

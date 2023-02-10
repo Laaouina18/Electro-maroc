@@ -1,5 +1,6 @@
 <?php
 require_once 'connection.php';
+include_once("../Model/usersModel.php");
 class clientModel {
     private $posts;
     public function addClientToDb($post){
@@ -8,6 +9,13 @@ class clientModel {
         adresse) VALUES ('".$post['name']."',
         '".$post['email']."','".$post['pass']."','".$post['num']."',
         '".$post['ville']."','".$post['adresse']."')");
+        header("locatrion:/login");
+        // $lastInsertId = $conn->lastInsertId();
+      
+        // $stmt=$conn->query("select from clients where id=$lastInsertId ");
+        // $c=$stmt->fetch();
+        // $client = new client;
+        // $client->log($c["email"], $c["pass"]);
     }
     function selectFromDb($element,$id){
         $conn=connect_to_db();
@@ -15,12 +23,12 @@ class clientModel {
         $result=$stmt->fetch();
         return $result;
     }
-    public function getClientFromDb(){
+    public function getClientFromDb($id){
         $conn=connect_to_db();
-            $stmt=$conn->query("select * from clients ;");
+            $stmt=$conn->query("select * from clients where id=$id ;");
         
-        $produit=$stmt->fetchAll();
-        return $produit;
+        $client=$stmt->fetchAll();
+        return $client;
     }
     public function getClient($id){
         $conn=connect_to_db();

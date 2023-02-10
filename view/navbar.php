@@ -1,6 +1,20 @@
    <!-- top navbar -->
 
- 
+ <?php  function connect_to_db(){
+    try {
+        $database = new PDO("mysql:host=localhost;dbname=electromaroc", 'root', '');
+        $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $database ->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+        return $database;
+    } catch(Exception $e) {
+    	die('Erreur : '.$e->getMessage());
+    }
+};
+$conn=connect_to_db();
+ $stmt=$conn->query("select * from categorie ;");
+        
+        $cat=$stmt->fetchAll();
+        ?>
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
           <a class="navbar-brand" href="/home" id="logo"><span id="span1">E</span>Lectro <span>Maroc</span></a>
@@ -20,24 +34,19 @@
                   Category
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
-                  <li><a class="dropdown-item" href="/categorie?t=Smart Phone">Samrt Phone</a></li>
-                  <li><a class="dropdown-item" href="/categorie?t=Gaming Gadget">Gaming Gadget</a></li>
-                  <li><a class="dropdown-item" href="/categorie?t=Cameras">Cameras</a></li>
-                  <li><a class="dropdown-item" href="/categorie?t=Fridge">Fridge</a></li>
-                  <li><a class="dropdown-item" href="/categorie?t=Smart Watch">Samrt Watch</a></li>
-                  <li><a class="dropdown-item" href="/categorie?t=Headphone">Headphone</a></li>
-                  <li><a class="dropdown-item" href="/categorie?t=PC Moniter">PC Moniter</a></li>
-               
+                <?php foreach($cat as $catsss):?>
+                 
+                  <li><a class="dropdown-item" href="/categorie?t=<?php echo$catsss ["namecategorie"] ?>"><?php echo $catsss["namecategorie"] ?></a></li>
+                  <?php endforeach; ?>
+                 
+                  <li><a class="dropdown-item" href="/cate">Catégories</a></li>
+                 
                 </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
               </li>
-              <?php if (isset($_SESSION["user"])) {
-              echo '
-                  <li class="nav-item">
-                  <a class="nav-link" href="/clients">Clients</a>
-                </li>';};?>
+            
                 <?php if (isset($_SESSION["user"])) {
               echo '
                   <li class="nav-item">
@@ -47,6 +56,11 @@
               echo '
                   <li class="nav-item">
                   <a class="nav-link" href="/carte">Carte</a>
+                </li>';};?>
+                    <?php if (isset($_SESSION["client"])) {
+              echo '
+                  <li class="nav-item">
+                  <a class="nav-link" href="/commandesclient">Mes Commandes</a>
                 </li>';};?>
             </ul>
             <div class="top-navbar">
@@ -71,7 +85,13 @@
         <?php
           }
         ?>
-        <a style="color:white" href="/inscription"><img src="assets/images/register.png" alt="" width="18px">Inscrir</a>
+        <?php if (empty($_SESSION)) {
+              echo '
+        <a style="color:white" href="/inscription"><img src="assets/images/register.png" alt="" width="18px">Inscrir</a>';}?>
+         <?php if(isset($_SESSION["user"]) || isset($_SESSION["client"])) {
+          echo'<a style="color:white">
+          <i class="fa-solid fa-user text-light"></i>Profile</a>';}?>
+         
         </div>
     </div>
           </div>

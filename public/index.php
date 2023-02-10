@@ -20,8 +20,12 @@ $routes = [
     "/description"=>"../view/description.php",
     "/update"=>"../view/update.php",
     "/categorie"=>"../view/categorie.php",
-    "/clients"=>"../view/clients.php",
-    "/carte"=>"../view/carte.php"
+    "/carte"=>"../view/carte.php",
+    "/commandes"=>"../view/commandes.php",
+    "/ajoutercat"=>"../view/ajoutercat.php",
+    "/cate"=>"../view/cate.php",
+    "/updatecategorie"=>"../view/Updatecategorie.php",
+    "/commandesclient"=>"../view/commandesclient.php"
 ];
 
 
