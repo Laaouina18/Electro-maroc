@@ -19,9 +19,13 @@ class CommandeController {
         $select=new commandeModel;
         return $select->selectFromDb($element,$id);
     }
-    function getprix($id){
+    function getprix($id,$idc){
         $select = new CommandeModel;
-        return $select->getprix($id);
+        return $select->getprix($id,$idc);
+    }
+    function getq($id){
+        $select = new CommandeModel;
+        return $select->getq($id);
     }
     function updateCommande(){
            

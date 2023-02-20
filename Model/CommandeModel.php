@@ -38,17 +38,27 @@ class CommandeModel {
     }
     public function getpr($idc,$idclient){
         $conn = connect_to_db();
-        $stmt = $conn->query("select distinct produit.namep,clients.name,commande_produit.quantite from produit inner join commande_produit 
+        $stmt = $conn->query("select  produit.namep,clients.name,commande_produit.quantite  from produit inner join commande_produit 
     inner join commandes inner join clients on commande_produit.idproduit=produit.id  
-    where commande_produit.idcommande=$idc and commandes.idclient=$idclient;");
+WHERE commande_produit.idcommande=$idc and commandes.idclient=$idclient GROUP BY produit.namep;");
     $produit=$stmt->fetchAll();
     return $produit;
     }
-    function getprix($id){
+    function getprix($id,$idc){
         $conn = connect_to_db();
-        $stmt = $conn->query("SELECT sum(commande_produit.quantite*produit.prixfinal) as total 
-        from commande_produit INNER JOIN produit inner join commandes on commande_produit.idproduit=produit.id where
-         commandes.idclient=$id;");
+        $stmt = $conn->query("SELECT SUM(commande_produit.quantite*produit.prixfinal) as total 
+        from commande_produit INNER JOIN produit on commande_produit.idproduit=produit.id 
+        inner join commandes on commande_produit.idcommande=commandes.idcommande  where
+         commandes.idclient=$id AND commandes.idcommande=$idc");
+        $result = $stmt->fetch();
+        $total = $result['total'];
+        return $total;
+    }
+    function getq($id){
+        $conn = connect_to_db();
+        $stmt = $conn->query("SELECT commande_produit.quantite as total 
+        from commande_produit INNER JOIN produit inner join commandes on commande_produit.idproduit=produit.id group by
+         commandes.idcommande=$id;");
         $result = $stmt->fetch();
         $total = $result['total'];
         return $total;
@@ -72,7 +82,7 @@ class CommandeModel {
         
              $stmt=$conn->query("UPDATE commandes SET 
              datelivraison=Now(),status='livré' where idcommande=$id;");
-        header("location:/commandesclients");
+        header("location:/commandesclient");
        
     }
 }

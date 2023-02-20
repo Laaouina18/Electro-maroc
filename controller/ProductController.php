@@ -85,7 +85,7 @@ class ProductController {
         $get = new productModel;
         return $get->getProductsFromDb();
     }
-    function getPro() {
+    function getPro($idc,$idu) {
         $get = new productModel;
         return $get->getProductsFromDb();
     }

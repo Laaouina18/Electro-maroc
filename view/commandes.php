@@ -42,7 +42,7 @@ include_once("../controller/ClientController.php");
         $produit = new CommandeController();
         $test = $produit->getpro($row['idcommande'], $row['idclient']);
         $prix = new CommandeController();
-        $prixtotal = $prix->getprix($row["idclient"]);?>
+        $prixtotal = $prix->getprix($row["idclient"],$row["idcommande"]);?>
          
           <td><?php
             foreach($test as $test ){

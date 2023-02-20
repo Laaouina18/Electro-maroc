@@ -25,7 +25,7 @@ if ($_POST["categorie"]!="Catégorie") {
         $result=$stmt->fetch();
         return $result;
     }
-    public function getProductsFromDb(){
+    public function getProductsFromDb($idc,$idu){
         $conn=connect_to_db();
             $stmt=$conn->query("SELECT *FROM produit");
         

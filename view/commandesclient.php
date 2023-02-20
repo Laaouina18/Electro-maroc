@@ -8,12 +8,7 @@ include_once("../controller/ClientController.php");
 
 ?>
 
-<!-- <select class="form-select" aria-label="Default select example" style="width:90%;margin:auto;margin-top:5%;">
-  <option selected>Sélectionner les commandes par prix</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option> -->
-</select>
+
 
 
 <div class="table-responsive m-3">
@@ -40,18 +35,24 @@ include_once("../controller/ClientController.php");
      <?php $test=new clientController();
         $clients=$test->getClient($row["idclient"]);
         $produit = new CommandeController();
+      
         $test = $produit->getpro($row['idcommande'], $row['idclient']);
+     
         $prix = new CommandeController();
-        $prixtotal = $prix->getprix($row["idclient"]);?>
+        $prix = $prix->getprix($row["idclient"],$row['idcommande']);
+       
+        ?>
+        
          
           <td><?php
-            foreach($test as $test ){
-            echo $test["namep"];
+            foreach($test as $table ){
+            echo $table["namep"];
             echo '<br>';
+           
             }
 
         ?></td>
- <td><?php   echo $prixtotal;?>DH</td>
+ <td><?php  echo $prix ?>DH</td>
 
           
        

@@ -38,8 +38,9 @@ $conn=connect_to_db();
                  
                   <li><a class="dropdown-item" href="/categorie?t=<?php echo$catsss ["namecategorie"] ?>"><?php echo $catsss["namecategorie"] ?></a></li>
                   <?php endforeach; ?>
-                 
-                  <li><a class="dropdown-item" href="/cate">Catégories</a></li>
+                  <?php if (isset($_SESSION["user"])) {
+              echo '
+                  <li><a class="dropdown-item" href="/cate">Catégories</a></li>';}?>
                  
                 </ul>
               </li>

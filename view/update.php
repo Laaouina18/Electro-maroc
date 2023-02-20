@@ -13,7 +13,7 @@ include_once("../controller/ProductController.php");?>
             <div class="input2 text-center">
                 
             <input  type="file" value="<?= $produit->select('*', $id)["photo"] ?>"name="photo"class="form-control-file" name="logo">
-            <input type="name" value="<?= $produit->select('*', $id)["name"] ?>" name="name" placeholder="Name">
+            <input type="name" value="<?= $produit->select('*', $id)["namep"] ?>" name="name" placeholder="Name">
             <input type="name" value="<?= $produit->select('*', $id)["categorie"] ?>"name="categorie"placeholder="Categorie">
             <input type="text"value="<?= $produit->select('*', $id)["quantite"] ?>"name="quantite" placeholder="Quantite">
             <input type="text" value="<?= $produit->select('*', $id)["codebare"] ?>"name="code_bare"placeholder="code bare">

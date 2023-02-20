@@ -25,7 +25,7 @@ $produit=$stmt->fetchAll();
           
             <img src="<?= $produit["photo"]?>" alt=""> 
             <div class="card-body">
-            <a href="/categorie?p=a&id=<?php echo $produit["id"]?>" style="text-decoration:none;"> 
+            <a  style="text-decoration:none;"> 
               <h3 class="text-center"><?php echo $produit["namep"]; ?></h3></a> 
               <div class="star text-center">
                 <i class="fa-solid fa-star checked"></i>
