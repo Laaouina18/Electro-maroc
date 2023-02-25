@@ -48,6 +48,11 @@ class clientController {
         $get = new clientModel;
         return $get->getClientFromDb($id);
     }
+    function getClients() {
+        $get = new clientModel;
+        return $get->getClient();
+    }
+
 }
 
 if (isset($_POST["save"])) {
@@ -56,4 +61,6 @@ if (isset($_POST["save"])) {
         $clients->addClient();
     header('location:/home');
     }
-};    
+};  
+$clients=new clientController;
+$clients=$clients->getClients()  ;

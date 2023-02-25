@@ -28,6 +28,7 @@ include_once("../controller/ClientController.php");
           <th scope="col">Date de création</th>
           <th scope="col">Date d'envoie</th>
           <th scope="col">Date de livraison</th>
+        
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -51,6 +52,7 @@ include_once("../controller/ClientController.php");
             }
 
         ?></td>
+       
  <td><?php   echo $prixtotal;?>DH</td>
 
           

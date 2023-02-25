@@ -10,13 +10,13 @@ include_once("../controller/ClientController.php")?>
             <h3 class="text-center">Create Account</h3>
             <form action="/inscription" method="post">
             <div class="input2 text-center">
-            <input name="name" type="name" placeholder="Name">
-            <input name="num" type="number" placeholder="Phone">
-            <input name="email" type="email" placeholder="Email">
-            <input name="pass" type="password" placeholder="payes">
-            <input name="ville" type="name" placeholder="Ville">
-            <input name="adresse" type="text" placeholder="adresse">
-            <input name="codepost" type="text" placeholder="code postale">
+            <input name="name" type="name" placeholder="Name"required>
+            <input name="num" type="number" placeholder="Phone" required>
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="pass" type="password" placeholder="entrer votre mot de passe" required>
+            <input name="ville" type="name" placeholder="Ville" required>
+            <input name="adresse" type="text" placeholder="adresse" required>
+            <input name="codepost" type="text" placeholder="code postale" required>
          
 
             </div>

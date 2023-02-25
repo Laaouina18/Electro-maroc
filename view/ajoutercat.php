@@ -11,9 +11,9 @@ include_once("../controller/categorieController.php");?>
             </h3>
 
             <div class="input2 text-center">
-            <input  type="file" name="photo"class="form-control-file" >
-            <input type="name" name="name" placeholder="Name">
-            <input type="text"name="description"placeholder="description">
+            <input  type="file" name="photo"class="form-control-file" required>
+            <input type="name" name="name" placeholder="Name" required>
+            <input type="text"name="description"placeholder="description"required>
             </div>
             <div style="margin-top: 2rem;"> <button name="enregistrer"  class="text-center" type="submit" id="btnlogin"  >Save<button>
            </div></div>

@@ -47,6 +47,9 @@ $conn=connect_to_db();
               <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
               </li>
+              <li class="nav-item">               <?php if (isset($_SESSION["user"])) {
+              echo '
+                  <a class="nav-link" href="/clients">Clients</a></li>';}?>
             
                 <?php if (isset($_SESSION["user"])) {
               echo '

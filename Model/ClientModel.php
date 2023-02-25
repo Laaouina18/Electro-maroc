@@ -30,12 +30,12 @@ class clientModel {
         $client=$stmt->fetchAll();
         return $client;
     }
-    public function getClient($id){
+    public function getClient(){
         $conn=connect_to_db();
-        $stmt=$conn->query("select * from clients where id=$id;");
+        $stmt=$conn->query("select * from clients  ;");
     
-    $produit=$stmt->fetchAll();
-    return $produit;
+    $client=$stmt->fetchAll();
+    return $client;
     }
     public function deleteClientInDb($id){
         $conn=connect_to_db();
